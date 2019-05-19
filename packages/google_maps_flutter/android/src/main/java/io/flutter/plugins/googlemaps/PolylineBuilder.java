@@ -3,18 +3,18 @@ package io.flutter.plugins.googlemaps;
 import com.google.android.gms.maps.model.Cap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.PatternItem;
-import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.gms.maps.model.PolygonOptions;
 import java.util.List;
 
 class PolylineBuilder implements PolylineOptionsSink {
-  private final PolylineOptions polylineOptions;
+  private final PolygonOptions polylineOptions;
   private boolean consumeTapEvents;
 
   PolylineBuilder() {
-    this.polylineOptions = new PolylineOptions();
+    this.polylineOptions = new PolygonOptions();
   }
 
-  PolylineOptions build() {
+  PolygonOptions build() {
     return polylineOptions;
   }
 
@@ -24,22 +24,22 @@ class PolylineBuilder implements PolylineOptionsSink {
 
   @Override
   public void setColor(int color) {
-    polylineOptions.color(color);
+    polylineOptions.fillColor(color);
   }
 
   @Override
   public void setEndCap(Cap endCap) {
-    polylineOptions.endCap(endCap);
+//    polylineOptions.endCap(endCap);
   }
 
   @Override
   public void setJointType(int jointType) {
-    polylineOptions.jointType(jointType);
+//    polylineOptions.jointType(jointType);
   }
 
   @Override
   public void setPattern(List<PatternItem> pattern) {
-    polylineOptions.pattern(pattern);
+//    polylineOptions.pattern(pattern);
   }
 
   @Override
@@ -60,7 +60,7 @@ class PolylineBuilder implements PolylineOptionsSink {
 
   @Override
   public void setStartCap(Cap startCap) {
-    polylineOptions.startCap(startCap);
+//    polylineOptions.startCap(startCap);
   }
 
   @Override
@@ -70,7 +70,7 @@ class PolylineBuilder implements PolylineOptionsSink {
 
   @Override
   public void setWidth(float width) {
-    polylineOptions.width(width);
+//    polylineOptions.width(width);
   }
 
   @Override

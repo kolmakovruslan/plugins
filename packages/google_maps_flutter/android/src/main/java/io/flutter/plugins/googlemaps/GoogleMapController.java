@@ -30,7 +30,7 @@ import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.Polygon;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
@@ -50,7 +50,7 @@ final class GoogleMapController
         GoogleMap.OnCameraMoveStartedListener,
         GoogleMap.OnInfoWindowClickListener,
         GoogleMap.OnMarkerClickListener,
-        GoogleMap.OnPolylineClickListener,
+        GoogleMap.OnPolygonClickListener,
         GoogleMap.OnCircleClickListener,
         GoogleMapOptionsSink,
         MethodChannel.MethodCallHandler,
@@ -168,7 +168,7 @@ final class GoogleMapController
     googleMap.setOnCameraMoveListener(this);
     googleMap.setOnCameraIdleListener(this);
     googleMap.setOnMarkerClickListener(this);
-    googleMap.setOnPolylineClickListener(this);
+    googleMap.setOnPolygonClickListener(this);
     googleMap.setOnCircleClickListener(this);
     googleMap.setOnMapClickListener(this);
     updateMyLocationSettings();
@@ -342,7 +342,7 @@ final class GoogleMapController
   }
 
   @Override
-  public void onPolylineClick(Polyline polyline) {
+  public void onPolygonClick(Polygon polyline) {
     polylinesController.onPolylineTap(polyline.getId());
   }
 

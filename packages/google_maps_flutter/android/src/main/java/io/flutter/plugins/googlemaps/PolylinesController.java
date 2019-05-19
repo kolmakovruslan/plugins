@@ -5,8 +5,8 @@
 package io.flutter.plugins.googlemaps;
 
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.Polyline;
-import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.gms.maps.model.Polygon;
+import com.google.android.gms.maps.model.PolygonOptions;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.List;
@@ -81,13 +81,13 @@ class PolylinesController {
     }
     PolylineBuilder polylineBuilder = new PolylineBuilder();
     String polylineId = Convert.interpretPolylineOptions(polyline, polylineBuilder);
-    PolylineOptions options = polylineBuilder.build();
+    PolygonOptions options = polylineBuilder.build();
     addPolyline(polylineId, options, polylineBuilder.consumeTapEvents());
   }
 
   private void addPolyline(
-      String polylineId, PolylineOptions polylineOptions, boolean consumeTapEvents) {
-    final Polyline polyline = googleMap.addPolyline(polylineOptions);
+      String polylineId, PolygonOptions polylineOptions, boolean consumeTapEvents) {
+    final Polygon polyline = googleMap.addPolygon(polylineOptions);
     PolylineController controller = new PolylineController(polyline, consumeTapEvents);
     polylineIdToController.put(polylineId, controller);
     googleMapsPolylineIdToDartPolylineId.put(polyline.getId(), polylineId);
